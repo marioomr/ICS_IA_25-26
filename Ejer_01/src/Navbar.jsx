@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-brown shadow-sm">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">MiSitio</a>
+        <a className="navbar-brand fw-bold" href="#">CaféLocal</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -19,7 +19,8 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item"><a className="nav-link active" href="#">Inicio</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Acerca</a></li>
+            <li className="nav-item"><a className="nav-link" href="#">Recomendaciones</a></li>
+            <li className="nav-item"><a className="nav-link" href="#">Mapa</a></li>
             <li className="nav-item"><a className="nav-link" href="#">Contacto</a></li>
           </ul>
         </div>
@@ -27,4 +28,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
