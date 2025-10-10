@@ -1,8 +1,8 @@
-import Navbar from './Navbar';
-import CardsSection from './CardsSection';
-import Footer from './Footer';
-import MainSection from './MainSection';
-import ContactForm from './ContactForm';
+import Navbar from './components/Navbar';
+import CardsSection from './components/CardsSection';
+import Footer from './components/Footer';
+import MainSection from './components/MainSection';
+import ContactForm from './components/ContactForm';
 
 function App() {
   return (
