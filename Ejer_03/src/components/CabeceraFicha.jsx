@@ -1,5 +1,3 @@
-// src/components/CabeceraFicha.jsx
-
 export default function CabeceraFicha({ nombre, vendedor }) {
   return (
     <div className="cabecera-ficha">

@@ -1,5 +1,3 @@
-// src/components/DetallesProducto.jsx
-
 export default function DetallesProducto({ caracteristicas, children }) {
   return (
     <div className="detalles-producto">
