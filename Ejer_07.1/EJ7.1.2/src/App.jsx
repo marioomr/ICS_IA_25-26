@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import SearchInput from './components/SearchInput'
 import UserList from './components/UserList'
 import './App.css'
@@ -17,11 +17,14 @@ function generateUsers(n = 10000) {
 
 export default function App() {
   const [search, setSearch] = useState('')
-  const users = generateUsers(10000) // se genera cada render
+  const users = useMemo(() => generateUsers(10000), [])
 
-  // Filtrado directo
-  const filtered = users.filter(u =>
-    u.name.toLowerCase().includes(search.toLowerCase())
+  const filtered = useMemo(
+    () =>
+      users.filter(u =>
+        u.name.toLowerCase().includes(search.toLowerCase())
+      ),
+    [search, users]
   )
 
   return (

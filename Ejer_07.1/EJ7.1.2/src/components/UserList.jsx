@@ -1,7 +1,7 @@
 import React from 'react'
 import UserCard from './UserCard'
 
-export default function UserList({ users }) {
+function UserList({ users }) {
   console.log('UserList render')
   return (
     <div>
@@ -11,3 +11,5 @@ export default function UserList({ users }) {
     </div>
   )
 }
+
+export default React.memo(UserList)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function UserCard({ user }) {
+function UserCard({ user }) {
   console.log('UserCard render', user.id)
   return (
     <div className="user-card">
@@ -10,3 +10,5 @@ export default function UserCard({ user }) {
     </div>
   )
 }
+
+export default React.memo(UserCard)

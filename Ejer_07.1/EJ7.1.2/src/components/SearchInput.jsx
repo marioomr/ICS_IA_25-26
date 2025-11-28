@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SearchInput({ search, setSearch }) {
+function SearchInput({ search, setSearch }) {
   console.log('SearchInput render')
   return (
     <input
@@ -11,3 +11,5 @@ export default function SearchInput({ search, setSearch }) {
     />
   )
 }
+
+export default React.memo(SearchInput)
