@@ -1,11 +1,13 @@
 import React from 'react'
 
-export default function ToastItem({ error, onClose }) {
+function ToastItem({ error, onClose }) {
   console.log('ToastItem render', error.id)
   return (
     <div className="toast">
       <span>{error.message}</span>
-      <button onClick={onClose}>X</button>
+      <button onClick={() => onClose(error.id)}>X</button>
     </div>
   )
 }
+
+export default React.memo(ToastItem)
