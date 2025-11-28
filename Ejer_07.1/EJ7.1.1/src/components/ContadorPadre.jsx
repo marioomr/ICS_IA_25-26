@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import ListaIntermedia from './ListaIntermedia';
+import React, { useState, useMemo } from 'react'
+import ListaIntermedia from './ListaIntermedia'
 
 function generateUsers(n = 500) {
-  const users = [];
+  const users = []
   for (let i = 0; i < n; i++) {
     users.push({
       id: i + 1,
@@ -10,15 +10,15 @@ function generateUsers(n = 500) {
       email: `user${i + 1}@example.com`,
       avatar: `https://i.pravatar.cc/150?img=${(i + 1) % 70 + 1}`,
       isOnline: Math.random() > 0.5,
-    });
+    })
   }
-  return users;
+  return users
 }
 
 export default function ContadorPadre() {
-  console.log('ContadorPadre render');
-  const [count, setCount] = useState(0);
-  const users = generateUsers(500); // sin optimizar
+  console.log('ContadorPadre render')
+  const [count, setCount] = useState(0)
+  const users = useMemo(() => generateUsers(500), []) // memoiza lista
 
   return (
     <div>
@@ -26,5 +26,5 @@ export default function ContadorPadre() {
       <button onClick={() => setCount(c => c + 1)}>Incrementar</button>
       <ListaIntermedia users={users} />
     </div>
-  );
+  )
 }

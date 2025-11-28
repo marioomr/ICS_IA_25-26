@@ -1,7 +1,9 @@
-import React from 'react';
-import PuntitoVerde from './PuntitoVerde';
+import React from 'react'
+import PuntitoVerde from './PuntitoVerde'
 
-export default function IconoOnline({ isOnline }) {
-  console.log('IconoOnline render');
-  return <PuntitoVerde isOnline={isOnline} />;
+function IconoOnline({ isOnline }) {
+  console.log('IconoOnline render')
+  return <PuntitoVerde isOnline={isOnline} />
 }
+
+export default React.memo(IconoOnline)

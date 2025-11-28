@@ -1,8 +1,8 @@
-import React from 'react';
-import Avatar from './Avatar';
+import React from 'react'
+import Avatar from './Avatar'
 
-export default function TarjetaUsuario({ user }) {
-  console.log('TarjetaUsuario render', user.id);
+function TarjetaUsuario({ user }) {
+  console.log('TarjetaUsuario render', user.id)
   return (
     <div className="tarjeta">
       <div>{user.id}</div>
@@ -10,5 +10,7 @@ export default function TarjetaUsuario({ user }) {
       <div>{user.email}</div>
       <Avatar user={user} />
     </div>
-  );
+  )
 }
+
+export default React.memo(TarjetaUsuario)

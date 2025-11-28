@@ -1,13 +1,15 @@
-import React from 'react';
-import TarjetaUsuario from './TarjetaUsuario';
+import React from 'react'
+import TarjetaUsuario from './TarjetaUsuario'
 
-export default function ListaIntermedia({ users }) {
-  console.log('ListaIntermedia render');
+function ListaIntermedia({ users }) {
+  console.log('ListaIntermedia render')
   return (
     <div>
       {users.map(user => (
         <TarjetaUsuario key={user.id} user={user} />
       ))}
     </div>
-  );
+  )
 }
+
+export default React.memo(ListaIntermedia)

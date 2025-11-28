@@ -17,8 +17,9 @@ function generateUsers(n = 10000) {
 
 export default function App() {
   const [search, setSearch] = useState('')
-  const users = generateUsers(10000) // sin optimizar aún
+  const users = generateUsers(10000) // se genera cada render
 
+  // Filtrado directo
   const filtered = users.filter(u =>
     u.name.toLowerCase().includes(search.toLowerCase())
   )

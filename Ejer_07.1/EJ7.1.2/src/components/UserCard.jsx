@@ -9,8 +9,4 @@ export default function UserCard({ user }) {
       <div>{user.email}</div>
     </div>
   )
-export default React.memo(UserCard)
-export default React.memo(UserList)
-
-  
 }
