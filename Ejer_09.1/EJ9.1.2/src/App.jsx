@@ -1,0 +1,43 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./components/RootLayout";
+import DashboardLayout from "./components/DashboardLayout";
+import HomePage from "./pages/HomePage";
+import TaskListPage from "./pages/TaskListPage";
+import NewTaskPage from "./pages/NewTaskPage";
+import TaskDetailPage from "./pages/TaskDetailPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import { lazy, Suspense } from "react";
+
+const ProfilePage = lazy(() => import("./pages/ProfilePage"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      {
+        path: "dashboard",
+        element: <DashboardLayout />,
+        children: [
+          { index: true, element: <TaskListPage /> },
+          { path: "new", element: <NewTaskPage /> },
+          { path: "task/:taskId", element: <TaskDetailPage /> },
+        ],
+      },
+      {
+        path: "profile",
+        element: (
+          <Suspense fallback={<p>Cargando...</p>}>
+            <ProfilePage />
+          </Suspense>
+        ),
+      },
+      { path: "*", element: <NotFoundPage /> },
+    ],
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
+}

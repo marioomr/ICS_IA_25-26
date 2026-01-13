@@ -20,9 +20,9 @@
 
 ## 5. Capturas de Profiler
 - Antes de optimizar:
-![Profiler antes](assets/cap3.2.png)
+![Profiler antes](assets/Cap3.2.png)
 - Después de optimizar:
-![Profiler después](assets/profiler3_after.png)
+![Profiler después](assets/Cap3.4.png)
 
 ## 6. Explicación
 - Las funciones inline crean nuevas referencias en cada render → todos los hijos que dependen de ella vuelven a renderizar.
