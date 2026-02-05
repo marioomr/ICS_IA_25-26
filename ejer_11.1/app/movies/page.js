@@ -1,21 +1,22 @@
-import { getAllMovies } from "../../lib/cinema";
 import Link from "next/link";
+import { getAllMovies } from "@/lib/cinema";
 
 export default function MoviesPage() {
   const movies = getAllMovies();
+
   return (
-    <main>
+    <div>
       <h1>Películas</h1>
       <ul>
-        {movies.map(m => (
-          <li key={m.id}>
-            <Link href={`/movies/${m.id}`}>
-              <img src={m.poster} alt={m.title} width="120"/>
-              <p>{m.title}</p>
+        {movies.map(movie => (
+          <li key={movie.id}>
+            <Link href={`/movies/${movie.id}`}>
+              <img src={movie.poster} alt={movie.title} width="150" />
+              <p>{movie.title}</p>
             </Link>
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }

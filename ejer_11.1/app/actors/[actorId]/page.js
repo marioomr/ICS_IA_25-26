@@ -1,18 +1,20 @@
-import { getActorById, getFilmographyByActorId } from "../../../lib/cinema";
 import Link from "next/link";
+import { getActorById, getFilmographyByActorId } from "@/lib/cinema";
 
-export default async function ActorDetail({ params }) {
-  const { actorId } = params;
+export default async function ActorDetailPage({ params }) {
+  const { actorId } = await params;
+
   const actor = getActorById(actorId);
-
-  if (!actor) return <main><h1>Página de actor no encontrada</h1></main>;
-
   const movies = getFilmographyByActorId(actorId);
 
+  if (!actor) {
+    return <h1>Actor no encontrado</h1>;
+  }
+
   return (
-    <main>
+    <div>
       <h1>{actor.name}</h1>
-      <img src={actor.photo} alt={actor.name} width="200"/>
+      <img src={actor.photo} alt={actor.name} width="300" />
       <p>{actor.bio}</p>
       <p>{actor.birthYear}</p>
 
@@ -21,12 +23,12 @@ export default async function ActorDetail({ params }) {
         {movies.map(movie => (
           <li key={movie.id}>
             <Link href={`/movies/${movie.id}`}>
-              <img src={movie.poster} alt={movie.title} width="120"/>
+              <img src={movie.poster} alt={movie.title} width="100" />
               <p>{movie.title}</p>
             </Link>
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }

@@ -1,21 +1,22 @@
-import { getAllActors } from "../../lib/cinema";
 import Link from "next/link";
+import { getAllActors } from "@/lib/cinema";
 
 export default function ActorsPage() {
   const actors = getAllActors();
+
   return (
-    <main>
+    <div>
       <h1>Actores</h1>
       <ul>
-        {actors.map(a => (
-          <li key={a.id}>
-            <Link href={`/actors/${a.id}`}>
-              <img src={a.photo} alt={a.name} width="100"/>
-              <p>{a.name}</p>
+        {actors.map(actor => (
+          <li key={actor.id}>
+            <Link href={`/actors/${actor.id}`}>
+              <img src={actor.photo} alt={actor.name} width="150" />
+              <p>{actor.name}</p>
             </Link>
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }
